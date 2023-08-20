@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/game-maker/static/css/main.97aa23e7.css",
+    "main.js": "/game-maker/static/js/main.2ed53c7f.js",
+    "static/js/787.78aa6129.chunk.js": "/game-maker/static/js/787.78aa6129.chunk.js",
+    "index.html": "/game-maker/index.html",
+    "main.97aa23e7.css.map": "/game-maker/static/css/main.97aa23e7.css.map",
+    "main.2ed53c7f.js.map": "/game-maker/static/js/main.2ed53c7f.js.map",
+    "787.78aa6129.chunk.js.map": "/game-maker/static/js/787.78aa6129.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97aa23e7.css",
+    "static/js/main.2ed53c7f.js"
+  ]
+}
