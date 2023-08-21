@@ -2,8 +2,8 @@ import { Component } from "react";
 
 import "./App.scss";
 
-import ProjectWindow from "./ProjectWindow/ProjectWindow";
-import SelectProjectWindow from "./SelectProjectWindow/SelectProjectWindow";
+import ProjectWindow from "components/ProjectWindow/ProjectWindow";
+import SelectProjectWindow from "components/SelectProjectWindow/SelectProjectWindow";
 
 type AppState = {
   project: {

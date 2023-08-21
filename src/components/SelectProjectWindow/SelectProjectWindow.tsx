@@ -1,9 +1,9 @@
 import "./SelectProjectWindow.scss";
 
-import Button from "../Button/Button";
-import Window from "../Window/Window";
-import FormField from "../FormField/FormField";
-import Input from "../Input/Input";
+import Button from "components/Button/Button";
+import Window from "components/Window/Window";
+import FormField from "components/FormField/FormField";
+import Input from "components/Input/Input";
 
 export default function SelectProjectWindow() {
   return (
