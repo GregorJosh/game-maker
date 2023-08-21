@@ -1,20 +1,24 @@
-@import '../mixins';
+@import "../mixins";
 
 .form-field {
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
 
-    @include tablet {
-        width: 40%;
-    }
+  @include tablet {
+    width: 40%;
+  }
+
+  & .label {
+    width: 50%;
+  }
 }
 
 .vertical {
-    @extend .form-field;
+  @extend .form-field;
 
-    flex-direction: column;
-    align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 }

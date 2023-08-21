@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 ul {
   list-style-type: none;
 }

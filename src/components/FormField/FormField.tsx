@@ -13,7 +13,7 @@ export default function FormField(props: Props) {
 
   return (
     <div className={vertical ? 'vertical' : 'form-field'}>
-      <label htmlFor={children.props.name}>{label}</label>
+      <label className="label" htmlFor={children.props.name}>{label}</label>
       {children}
     </div>
   );

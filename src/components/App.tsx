@@ -1,27 +1,28 @@
+import { Component } from "react";
+
 import "./App.scss";
 
-import TitleBar from "./TitleBar/TitleBar";
-import MenuBar from "./MenuBar/MenuBar";
-import ToolBar from "./ToolBar/ToolBar";
-import Layout from "./Layout/Layout";
-import Window from "./Window/Window";
+import ProjectWindow from "./ProjectWindow/ProjectWindow";
+import SelectProjectWindow from "./SelectProjectWindow/SelectProjectWindow";
 
-export default function App() {
-  return (
-    <div className="app">
-      <TitleBar>Game Maker</TitleBar>
-      <MenuBar />
-      <ToolBar />
-      <Layout>
-        <Layout vertical>
-          <Layout>
-            <Window></Window>
-            <Window></Window>
-          </Layout>
-          <Window></Window>
-        </Layout>
-        <Window></Window>
-      </Layout>
-    </div>
-  );
+type AppState = {
+  project: {
+    name: string;
+  } | null;
+};
+
+export default class App extends Component<{}, AppState> {
+  static defaultProps = {};
+
+  state = {
+    project: null,
+  };
+
+  render() {
+    return (
+      <div className="app">
+        {this.state.project ? <ProjectWindow /> : <SelectProjectWindow />}
+      </div>
+    );
+  }
 }

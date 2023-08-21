@@ -1,0 +1,13 @@
+.project-list {
+    &__link {
+        font-size: 16px;
+    }
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
