@@ -1,6 +1,14 @@
 .project-list {
     &__link {
         font-size: 16px;
+        background: transparent;
+        border: none;
+        color: white;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 

@@ -13,9 +13,7 @@ export default function SelectProjectWindow() {
         <h2>Open an recent project:</h2>
         <ul className="project-list">
           <li className="project-list__project">
-            <a className="project-list__link" href="#">
-              Project 1
-            </a>
+            <button className="project-list__link">Project 1</button>
           </li>
         </ul>
         <h2>or</h2>
