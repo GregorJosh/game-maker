@@ -1,0 +1,17 @@
+@import '../vars';
+
+.button {
+  padding: 5px 20px;
+
+  cursor: pointer;
+  background-color: white;
+  box-shadow: $defBoxShadow;
+  border-radius: 4px;
+  border: $defBorder;
+
+  font-weight: 500;
+
+  &:hover {
+    background-color: rgb(244, 244, 244);
+  }
+}

@@ -7,7 +7,7 @@ import App from "./components/App";
 
 import reportWebVitals from "./reportWebVitals";
 
-const rootElement: HTMLElement | null = document.getElementById("root");
+const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement as HTMLElement);
 
 root.render(
