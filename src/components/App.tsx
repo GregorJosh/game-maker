@@ -1,4 +1,4 @@
-import { Component, FormEvent } from "react";
+import { Component, ReactNode } from "react";
 
 import "components/App.scss";
 
@@ -12,28 +12,23 @@ type AppState = {
   projects: string[];
 };
 
-interface FormElements extends HTMLCollection {
-  name: HTMLInputElement;
-}
-
 export default class App extends Component<{}, AppState> {
-  static defaultProps = {};
+  static defaultProps: Readonly<{}> = {};
 
-  state = {
+  state: Readonly<AppState> = {
     project: null,
     projects: [],
   };
 
-  createNewProject(event: FormEvent<HTMLFormElement>) {
-    const form = event.target as HTMLFormElement;
-    const elements = form.elements as FormElements;
+  createNewProject = (name: string): void => {
+    const projects: string[] = this.state.projects.slice();
 
-    console.log(elements.name.value);
+    projects.push(name);
+    localStorage.setItem("projects", JSON.stringify(projects));
+    this.setState({ projects }, () => console.log(this.state));
+  };
 
-    event.preventDefault();
-  }
-
-  render() {
+  render(): ReactNode {
     return (
       <div className="app">
         {this.state.project ? (
@@ -46,5 +41,12 @@ export default class App extends Component<{}, AppState> {
         )}
       </div>
     );
+  }
+
+  componentDidMount(): void {
+    const projects: string[] =
+      JSON.parse(localStorage.getItem("projects") as string) || [];
+
+    this.setState({ projects });
   }
 }

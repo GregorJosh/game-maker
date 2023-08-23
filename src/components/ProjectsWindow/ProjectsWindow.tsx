@@ -1,8 +1,7 @@
-import { ReactEventHandler } from "react";
+import { FormEvent } from "react";
 
 import "./ProjectsWindow.scss";
 
-import Button from "components/Button/Button";
 import Window from "components/Window/Window";
 import FormField from "components/FormField/FormField";
 import Input from "components/Input/Input";
@@ -11,12 +10,31 @@ import Form from "components/Form/Form";
 
 type ProjectsWindowProps = {
   projects: string[];
-  createProjectHandler: ReactEventHandler<HTMLFormElement>;
-  deleteProjectHandler?: () => void;
+  createProjectHandler: (name: string) => void;
+  deleteProjectHandler?: (name: string) => void;
 };
 
+interface FormElements extends HTMLCollection {
+  name: HTMLInputElement;
+}
+
+function onCreateProject(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
+
+  const form = event.target as HTMLFormElement;
+  const elements = form.elements as FormElements;
+
+  if (createProjectHandler) {
+    createProjectHandler(elements.name.value);
+  }
+}
+
+let createProjectHandler: (name: string) => void | undefined;
+
 export default function ProjectsWindow(props: ProjectsWindowProps) {
-  const {projects, createProjectHandler} = props;
+  const { projects } = props;
+
+  createProjectHandler = props.createProjectHandler;
 
   return (
     <Window>
@@ -26,20 +44,24 @@ export default function ProjectsWindow(props: ProjectsWindowProps) {
           <>
             <h2>Open any recent project:</h2>
             <ul className="project-list">
-              <li className="project-list__project">
-                <button className="project-list__link">Project 1</button>
-              </li>
+              {projects.map((project) => (
+                <li className="project-list__project" key={project}>
+                  <button className="project-list__link">{project}</button>
+                </li>
+              ))}
             </ul>
             <h2>or</h2>
           </>
         ) : (
           <Notification>You haven't created any projects</Notification>
         )}
-        <Form submitHandler={createProjectHandler}>
+        <Form
+          submitHandler={onCreateProject}
+          submitBtnLabel="Create new project"
+        >
           <FormField label="Game name">
             <Input name="name" />
           </FormField>
-          <Button type="submit">Create new project</Button>
         </Form>
       </Window>
     </Window>
