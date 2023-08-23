@@ -1,7 +1,8 @@
 type Props = {
-  message: string;
+  message?: string;
+  children?: string;
 };
 
-export default function Notification({ message }: Props) {
-  return <div>{message}</div>;
+export default function Notification({ message, children }: Props) {
+  return <div>{message || children}</div>;
 }

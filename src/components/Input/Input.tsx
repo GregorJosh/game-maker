@@ -15,7 +15,7 @@ export default class Input extends Component<InputProps> {
   static defaultProps = {
     title:
       "Must contain minimium a one character of letter, number, space, underscore, dash, plus",
-    pattern: "^[a-zA-Z0-9- _]+$",
+    pattern: "^[a-zA-Z0-9\\- _]+$",
     type: "text",
     placeholder: "",
     handler: null,

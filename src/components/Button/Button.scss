@@ -1,13 +1,13 @@
-@import '../vars';
+@use './src/sass/modules/vars';
 
 .button {
   padding: 5px 20px;
 
   cursor: pointer;
   background-color: white;
-  box-shadow: $defBoxShadow;
+  box-shadow: vars.$defBoxShadow;
   border-radius: 4px;
-  border: $defBorder;
+  border: vars.$defBorder;
 
   font-weight: 500;
 
