@@ -9,7 +9,7 @@ type LayoutProps = {
 
 export default function Layout(props: LayoutProps) {
   const { children, vertical = false } = props;
-  const className = vertical ? "vertical" : "horizontal";
+  const className = vertical ? "vertical" : "layout";
 
   return <div className={className}>{children}</div>;
 }

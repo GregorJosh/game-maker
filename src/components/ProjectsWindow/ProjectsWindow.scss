@@ -1,4 +1,10 @@
 .project-list {
+    &__project {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
     &__link {
         font-size: 16px;
         background: transparent;

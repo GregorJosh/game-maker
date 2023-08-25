@@ -14,11 +14,11 @@
   & .label {
     width: 50%;
   }
-}
 
-.vertical {
-  @extend .form-field;
-
-  flex-direction: column;
-  align-items: flex-start;
+  .vertical {
+    @extend .form-field;
+  
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

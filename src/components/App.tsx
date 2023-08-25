@@ -24,19 +24,37 @@ export default class App extends Component<{}, AppState> {
     const projects: string[] = this.state.projects.slice();
 
     projects.push(name);
-    localStorage.setItem("projects", JSON.stringify(projects));
-    this.setState({ projects }, () => console.log(this.state));
+    this.setState({ projects });
+  };
+
+  deleteProject = (name: string): void => {
+    const projects: string[] = this.state.projects.slice();
+
+    projects.splice(projects.indexOf(name), 1);
+    this.setState({ projects });
+  };
+
+  openProject = (name: string): void => {
+    const project = {
+      name: name,
+    };
+
+    this.setState({ project });
   };
 
   render(): ReactNode {
+    const { project, projects } = this.state;
+
     return (
       <div className="app">
-        {this.state.project ? (
-          <ProjectWindow />
+        {project ? (
+          <ProjectWindow project={project} />
         ) : (
           <ProjectsWindow
-            projects={this.state.projects}
+            projects={projects}
             createProjectHandler={this.createNewProject}
+            deleteProjectHandler={this.deleteProject}
+            openProjectHandler={this.openProject}
           />
         )}
       </div>
@@ -48,5 +66,11 @@ export default class App extends Component<{}, AppState> {
       JSON.parse(localStorage.getItem("projects") as string) || [];
 
     this.setState({ projects });
+  }
+
+  componentDidUpdate(): void {
+    const projects: string[] = this.state.projects.slice();
+
+    localStorage.setItem("projects", JSON.stringify(projects));
   }
 }

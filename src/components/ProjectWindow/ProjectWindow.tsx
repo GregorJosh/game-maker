@@ -6,11 +6,17 @@ import ToolBar from "../ToolBar/ToolBar";
 import Layout from "../Layout/Layout";
 import Window from "../Window/Window";
 
-export default class ProjectWindow extends Component {
+type ProjectWindowProps = {
+  project: {
+    name: string;
+  };
+};
+
+export default class ProjectWindow extends Component<ProjectWindowProps> {
   render() {
     return (
       <>
-        <TitleBar>Game Maker</TitleBar>
+        <TitleBar>{'Game Maker: '+this.props.project.name}</TitleBar>
         <MenuBar />
         <ToolBar />
         <Layout>
