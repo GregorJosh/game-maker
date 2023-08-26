@@ -16,7 +16,7 @@ export default class ProjectWindow extends Component<ProjectWindowProps> {
   render() {
     return (
       <>
-        <TitleBar>{'Game Maker: '+this.props.project.name}</TitleBar>
+        <TitleBar>{'Project ' + this.props.project.name + ' - Game Maker'}</TitleBar>
         <MenuBar />
         <ToolBar />
         <Layout>
